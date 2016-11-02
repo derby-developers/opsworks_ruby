@@ -9,6 +9,7 @@ module Drivers
         :envs_in_console
       ]
       packages debian: 'zlib1g-dev', rhel: 'zlib-devel'
+      packages all: 'nodejs'
 
       def raw_out
         super.merge(deploy_environment: { 'RAILS_ENV' => deploy_env })
