@@ -14,6 +14,8 @@ else
   ruby_pkg_version = node['ruby-ng']['ruby_version'].split('.')[0..1]
   package "ruby#{ruby_pkg_version.join('')}"
   package "ruby#{ruby_pkg_version.join('')}-devel"
+  package "nodejs"
+  package "npm"
   execute "/usr/sbin/alternatives --set ruby /usr/bin/ruby#{ruby_pkg_version.join('.')}"
 end
 
