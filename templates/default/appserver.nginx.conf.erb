@@ -66,8 +66,8 @@ server {
   access_log <%= @out[:log_dir] %>/<%= @application[:domains].first %>-ssl.access.log;
 
   ssl on;
-  ssl_certificate /etc/nginx/ssl/<%= @application[:domains].first %>.crt;
-  ssl_certificate_key /etc/nginx/ssl/<%= @application[:domains].first %>.key;
+  ssl_certificate /etc/letsencrypt/live/<%= @application[:domains].first %>/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/<%= @application[:domains].first %>/privkey.pem;
   <% if @application[:ssl_configuration][:chain] -%>
   ssl_client_certificate /etc/nginx/ssl/<%= @application[:domains].first %>.ca;
   <% end -%>
